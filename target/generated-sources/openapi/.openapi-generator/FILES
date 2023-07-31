@@ -1,0 +1,13 @@
+.openapi-generator-ignore
+README.md
+gen/orla/digital/desafiobackend/controller/v1/ApiUtil.java
+gen/orla/digital/desafiobackend/controller/v1/FuncionariosApi.java
+gen/orla/digital/desafiobackend/controller/v1/HealthApi.java
+gen/orla/digital/desafiobackend/controller/v1/ProjetosApi.java
+gen/orla/digital/desafiobackend/domain/dto/v1/ApiErrorV1DTO.java
+gen/orla/digital/desafiobackend/domain/dto/v1/FuncionarioProjetoV1DTO.java
+gen/orla/digital/desafiobackend/domain/dto/v1/FuncionarioV1DTO.java
+gen/orla/digital/desafiobackend/domain/dto/v1/GetHealth200ResponseV1DTO.java
+gen/orla/digital/desafiobackend/domain/dto/v1/ProjetoV1DTO.java
+gen/orla/digital/desafiobackend/domain/dto/v1/SearchFuncionario400ResponseV1DTO.java
+pom.xml

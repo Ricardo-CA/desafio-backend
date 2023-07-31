@@ -1,0 +1,649 @@
+openapi: 3.0.1
+info:
+  title: Desafio backend
+  description: API para controle de funcionarios e projetos
+  version: 1.0.0
+servers:
+  - url: /desafio-backend/v1
+tags:
+  - name: Funcionário
+    description: Controles para funcionários
+  - name: Projeto
+    description: Controles para projetos
+  - name: Health
+    description: Controles para vida da aplicação
+paths:
+  /funcionarios:
+    get:
+      tags:
+        - Funcionário
+      summary: Buscar funcionário
+      description: Buscar todos os funcionários cadastrados
+      operationId: searchFuncionario
+      responses:
+        200:
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Funcionario'
+        400:
+          description: Algum parâmetro informado está inválido
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ApiError:
+                    $ref: '#/components/schemas/ApiError'
+        401:
+          description: Não autorizado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ApiError:
+                    $ref: '#/components/schemas/ApiError'
+        403:
+          description: Não permitido
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ApiError:
+                    $ref: '#/components/schemas/ApiError'
+        500:
+          description: Erro não identificado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ApiError:
+                    $ref: '#/components/schemas/ApiError'
+        501:
+          description: Não implementado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ApiError:
+                    $ref: '#/components/schemas/ApiError'
+    post:
+      tags:
+        - Funcionário
+      summary: Criar funcionário
+      description: Criar funcionário
+      operationId: createFuncionario
+      requestBody:
+        description: Informações do novo funcionário para inclusão
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Funcionario'
+        required: true
+      responses:
+        201:
+          description: Created
+          content: {}
+        400:
+          description: Algum parâmetro informado está inválido
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ApiError:
+                    $ref: '#/components/schemas/ApiError'
+        401:
+          description: Não autorizado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ApiError:
+                    $ref: '#/components/schemas/ApiError'
+        403:
+          description: Não permitido
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ApiError:
+                    $ref: '#/components/schemas/ApiError'
+        500:
+          description: Erro não identificado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ApiError:
+                    $ref: '#/components/schemas/ApiError'
+        501:
+          description: Não implementado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ApiError:
+                    $ref: '#/components/schemas/ApiError'
+      x-codegen-request-body-name: Novo Funcionario
+  /funcionarios/{id}:
+    get:
+      tags:
+        - Funcionário
+      summary: Buscar funcionário pelo identificador
+      description: Buscar funcionário pelo identificador
+      operationId: searchFuncionarioById
+      parameters:
+        - name: id
+          in: path
+          description: Id do funcionário
+          required: true
+          schema:
+            type: integer
+            format: long
+      responses:
+        200:
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Funcionario'
+        400:
+          description: Algum parâmetro informado está inválido
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ApiError:
+                    $ref: '#/components/schemas/ApiError'
+        401:
+          description: Não autorizado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ApiError:
+                    $ref: '#/components/schemas/ApiError'
+        403:
+          description: Não permitido
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ApiError:
+                    $ref: '#/components/schemas/ApiError'
+        404:
+          description: O recurso solicitado não foi encontrado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ApiError:
+                    $ref: '#/components/schemas/ApiError'
+        500:
+          description: Erro não identificado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ApiError:
+                    $ref: '#/components/schemas/ApiError'
+        501:
+          description: Não implementado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ApiError:
+                    $ref: '#/components/schemas/ApiError'
+  /projetos:
+    get:
+      tags:
+        - Projeto
+      summary: Buscar projeto
+      description: Buscar todos os projetos cadastrados.
+      operationId: searchProjeto
+      responses:
+        200:
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Projeto'
+        400:
+          description: Algum parâmetro informado está inválido
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ApiError:
+                    $ref: '#/components/schemas/ApiError'
+        401:
+          description: Não autorizado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ApiError:
+                    $ref: '#/components/schemas/ApiError'
+        403:
+          description: Não permitido
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ApiError:
+                    $ref: '#/components/schemas/ApiError'
+        500:
+          description: Erro não identificado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ApiError:
+                    $ref: '#/components/schemas/ApiError'
+        501:
+          description: Não implementado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ApiError:
+                    $ref: '#/components/schemas/ApiError'
+    post:
+      tags:
+        - Projeto
+      summary: Criar projeto
+      description: Criar projeto
+      operationId: createProjeto
+      requestBody:
+        description: Informações do novo projeto para inclusão.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Projeto'
+        required: true
+      responses:
+        201:
+          description: Created
+          content: {}
+        400:
+          description: Algum parâmetro informado está inválido
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ApiError:
+                    $ref: '#/components/schemas/ApiError'
+        401:
+          description: Não autorizado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ApiError:
+                    $ref: '#/components/schemas/ApiError'
+        403:
+          description: Não permitido
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ApiError:
+                    $ref: '#/components/schemas/ApiError'
+        500:
+          description: Erro não identificado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ApiError:
+                    $ref: '#/components/schemas/ApiError'
+        501:
+          description: Não implementado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ApiError:
+                    $ref: '#/components/schemas/ApiError'
+      x-codegen-request-body-name: Novo Projeto
+  /projetos/{id}:
+    get:
+      tags:
+        - Projeto
+      summary: Buscar projeto pelo identificador
+      description: Buscar projeto pelo identificador.
+      operationId: searchProjetoById
+      parameters:
+        - name: id
+          in: path
+          description: Id do projeto
+          required: true
+          schema:
+            type: integer
+            format: long
+      responses:
+        200:
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Projeto'
+        400:
+          description: Algum parâmetro informado está inválido
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ApiError:
+                    $ref: '#/components/schemas/ApiError'
+        401:
+          description: Não autorizado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ApiError:
+                    $ref: '#/components/schemas/ApiError'
+        403:
+          description: Não permitido
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ApiError:
+                    $ref: '#/components/schemas/ApiError'
+        404:
+          description: O recurso solicitado não foi encontrado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ApiError:
+                    $ref: '#/components/schemas/ApiError'
+        500:
+          description: Erro não identificado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ApiError:
+                    $ref: '#/components/schemas/ApiError'
+        501:
+          description: Não implementado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ApiError:
+                    $ref: '#/components/schemas/ApiError'
+  /health:
+    get:
+      tags:
+        - Health
+      summary: Verificar vida da aplicação
+      description: Detalhes sobre o estado da aplicação
+      operationId: getHealth
+      responses:
+        200:
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: Estado da aplicação
+                example:
+                  status: UP
+        401:
+          description: Não autorizado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ApiError:
+                    $ref: '#/components/schemas/ApiError'
+        403:
+          description: Não permitido
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ApiError:
+                    $ref: '#/components/schemas/ApiError'
+        500:
+          description: Erro não identificado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ApiError:
+                    $ref: '#/components/schemas/ApiError'
+        501:
+          description: Não implementado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ApiError:
+                    $ref: '#/components/schemas/ApiError'
+components:
+  schemas:
+    ApiError:
+      title: Erro da requisição
+      required:
+        - codigo
+        - httpStatus
+        - mensagem
+      type: object
+      properties:
+        codigo:
+          type: string
+          description: Código do erro
+        mensagem:
+          type: string
+          description: Mensagem do erro
+        dataHora:
+          type: string
+          description: Data e hora da ocorrência do erro
+          format: date-time
+        httpStatus:
+          type: string
+          description: Código de status http do erro
+          format: HttpStatus
+        erros:
+          type: array
+          description: Lista de mensagens do erro
+          items:
+            type: string
+      description: Informações sobre o erro da requisição
+      example:
+        codigo: 001A
+        mensagem: Ocorreu um erro.
+        dataHora: 2023-03-28T22:35:10.123-03:00
+        httpStatus: INTERNAL_SERVER_ERROR
+        erros:
+          - Detalhe 01 do erro.
+          - Detalhe 02 do erro.
+    Funcionario:
+      title: Dados do funcionário
+      type: object
+      properties:
+        nome:
+          type: string
+          description: Nome do funcionário
+          format: string
+          example: Ricardo Carvalho Agostinho
+        cpf:
+          pattern: /^\d{11}$/
+          type: string
+          description: Identificador do funcionário
+          format: string
+          example: "12345678901"
+        email:
+          type: string
+          description: E-mail do funcionário
+          format: email
+          example: email@teste.com
+        salario:
+          type: number
+          description: Salário do funcionário
+          format: BigDecimal
+          example: 1000.0
+      description: Informações sobre o funcionário
+    Projeto:
+      title: Dados do projeto
+      type: object
+      properties:
+        nome:
+          type: string
+          description: Nome do projeto
+          format: string
+          example: Projeto 01
+        dataCriacao:
+          type: string
+          description: Data de criação do projeto
+          format: date
+          example: 2020-01-01
+      description: Informações sobre o projeto
+  responses:
+    200Sucesso:
+      description: Sucesso
+      content: {}
+    201Criado:
+      description: Criado
+      content: {}
+    202Aceito:
+      description: Aceito
+      content: {}
+    204SemConteudo:
+      description: Sem conteúdo
+      content: {}
+    400RequisicaoMalFormada:
+      description: Algum parâmetro informado está inválido
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              ApiError:
+                $ref: '#/components/schemas/ApiError'
+    401NaoAutorizado:
+      description: Não autorizado
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              ApiError:
+                $ref: '#/components/schemas/ApiError'
+    403NaoPermitido:
+      description: Não permitido
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              ApiError:
+                $ref: '#/components/schemas/ApiError'
+    404NaoEncontrado:
+      description: O recurso solicitado não foi encontrado
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              ApiError:
+                $ref: '#/components/schemas/ApiError'
+    405MetodoNaoPermitido:
+      description: Método não permitido
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              ApiError:
+                $ref: '#/components/schemas/ApiError'
+    406NaoAceito:
+      description: Não aceito
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              ApiError:
+                $ref: '#/components/schemas/ApiError'
+    422EntidadeNaoProcessavel:
+      description: Entidade Não Processável
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              ApiError:
+                $ref: '#/components/schemas/ApiError'
+    500ErroInternoServidor:
+      description: Erro não identificado
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              ApiError:
+                $ref: '#/components/schemas/ApiError'
+    501NaoImplementado:
+      description: Não implementado
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              ApiError:
+                $ref: '#/components/schemas/ApiError'
+x-destination: null
+x-api-broken: false
+x-timeout: null
+x-access-token-expires-in: null
+x-life-cycle: null
