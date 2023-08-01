@@ -53,7 +53,9 @@ Para executar este projeto localmente, siga estas etapas:
 
     Agora, o servidor deve estar rodando em `http://localhost:8080`.
 
-4. Execute o aplicativo pelo docker-compose:
+   O Swagger da aplicação pode ser acessado em `http://localhost:8080/swagger-ui/index.html`
+
+5. Execute o aplicativo pelo docker-compose:
    ```bash
     docker-compose up
     ```
