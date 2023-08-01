@@ -10,7 +10,7 @@ import orla.digital.desafiobackend.exception.handler.Erro;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-07-31T20:18:52-0300",
+    date = "2023-07-31T21:12:04-0300",
     comments = "version: 1.5.3.Final, compiler: javac, environment: Java 20 (Oracle Corporation)"
 )
 public class AppExceptionMapperImpl implements AppExceptionMapper {

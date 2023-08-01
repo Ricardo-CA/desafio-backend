@@ -12,7 +12,8 @@ public enum Erro {
     ERRO_DESCONHECIDO("1", "Erro desconhecido."),
     NAO_PERMITIDO("2", "Não permitido"),
     FUNCIONARIO_NAO_ENCONTRADO("3", "Funcionário não encontrado."),
-    PROJETO_NAO_ENCONTRADO("4", "Projeto não encontrado.");
+    PROJETO_NAO_ENCONTRADO("4", "Projeto não encontrado."),
+    CPF_INVALIDO("5", "CPF inválido.");
 
     private final String codigo;
     private final String mensagem;

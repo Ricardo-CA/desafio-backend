@@ -3,6 +3,7 @@ package orla.digital.desafiobackend.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.validator.constraints.br.CPF;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -13,6 +14,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Builder
 @Table(name = "funcionario")
 public class Funcionario {
 
@@ -26,6 +28,7 @@ public class Funcionario {
 
     @Column(nullable = false, unique = true)
     @EqualsAndHashCode.Include
+    @CPF
     private String cpf;
 
     @Column(nullable = false, unique = true)

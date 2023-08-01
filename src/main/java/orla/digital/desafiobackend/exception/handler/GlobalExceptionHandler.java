@@ -1,6 +1,7 @@
 package orla.digital.desafiobackend.exception.handler;
 
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.validation.ConstraintViolationException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import orla.digital.desafiobackend.domain.dto.v1.ApiErrorV1DTO;
 import orla.digital.desafiobackend.exception.AppException;
+import orla.digital.desafiobackend.exception.CpfInvalidoException;
 import orla.digital.desafiobackend.exception.ErroDesconhecidoException;
 
 import java.util.Optional;
@@ -40,5 +42,11 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ApiErrorV1DTO> exception(Exception ex) {
         log.error("Erro genérico. ", ex);
         return exception(new ErroDesconhecidoException());
+    }
+
+    @ExceptionHandler({ConstraintViolationException.class})
+    public ResponseEntity<ApiErrorV1DTO> exception(ConstraintViolationException ex) {
+        log.error("Erro de CPF inválido. ", ex);
+        return exception(new CpfInvalidoException());
     }
 }
