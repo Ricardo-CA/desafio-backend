@@ -53,7 +53,7 @@ Para executar este projeto localmente, siga estas etapas:
 
     Agora, o servidor deve estar rodando em `http://localhost:8080`.
 
-3.1. Execute o aplicativo pelo docker-compose:
+4. Execute o aplicativo pelo docker-compose:
    ```bash
     docker-compose up
     ```
