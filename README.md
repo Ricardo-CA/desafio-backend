@@ -4,7 +4,7 @@ Este projeto é uma API REST que fornece um sistema de gerenciamento para Projet
 
 ## Requisitos
 
-* Java 11
+* Java 17
 * Maven
 * MySQL
 
@@ -35,8 +35,8 @@ Para executar este projeto localmente, siga estas etapas:
 1. Clone o repositório:
 
     ```bash
-    git clone https://github.com/your-username/desafiobackend.git
-    cd desafiobackend
+    git clone https://github.com/Ricardo-CA/desafio-backend.git
+    cd desafio-backend
     ```
 
 2. Compile e empacote o aplicativo usando Maven:
@@ -53,6 +53,11 @@ Para executar este projeto localmente, siga estas etapas:
 
     Agora, o servidor deve estar rodando em `http://localhost:8080`.
 
+3.1. Execute o aplicativo pelo docker-compose:
+   ```bash
+    docker-compose up
+    ```
+   
 ## Testes
 
 Para rodar os testes, use o seguinte comando Maven:
